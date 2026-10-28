@@ -158,7 +158,7 @@ export function DataSection({
         Everything you enter lives in one database on your server, and nothing is sold: there&apos;s no one to sell it to. What leaves it goes to
         the AI provider and job source you choose, Google if you connect Gmail, and the daily usage ping and update check (see About).
       </SettingsSectionIntro>
-      <Card padding="none" className="flex flex-col px-7 pt-1.5 pb-2.5">
+      <Card padding="none" className="flex flex-col px-5 sm:px-7 pt-1.5 pb-2.5">
         <DataRow
           title="Export everything"
           description="Profile, applications, documents and themes in one JSON file. Handy for backups or moving servers."
@@ -335,7 +335,7 @@ function DangerZone() {
   return (
     <section
       aria-labelledby="danger-heading"
-      className="flex flex-col gap-3.5 rounded-panel border border-danger-line bg-danger-surface px-7 py-[22px]"
+      className="flex flex-col gap-3.5 rounded-panel border border-danger-line bg-danger-surface px-5 sm:px-7 py-[22px]"
     >
       <div className="flex flex-col gap-1">
         <h3 id="danger-heading" className="text-[15px] font-medium text-error-strong">

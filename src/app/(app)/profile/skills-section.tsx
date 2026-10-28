@@ -30,7 +30,7 @@ export function ChipCard({
   children: ReactNode;
 }) {
   return (
-    <Card className="flex flex-col gap-4 px-7 py-6">
+    <Card padding="none" className="flex flex-col gap-4 px-5 py-6 sm:px-7">
       <div className="flex items-baseline justify-between">
         <h3 className="text-lead font-medium">
           {title}
@@ -216,7 +216,7 @@ function LanguagesCard({ profile, update }: { profile: ProfileData; update: Upda
                 type="button"
                 aria-label={`Remove ${language.name}`}
                 onClick={() => void remove(language.id)}
-                className="rounded-control px-1.5 py-1 text-base leading-none text-muted hover:text-ink"
+                className="rounded-control px-1.5 py-1 text-base leading-none text-muted hover:text-ink pointer-coarse:p-2"
               >
                 <span aria-hidden="true">×</span>
               </button>

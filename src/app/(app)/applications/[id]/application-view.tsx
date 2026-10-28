@@ -556,7 +556,13 @@ export function ApplicationView({
   const letterStored = new Set(letter?.units.map((unit) => unit.id));
   const emailUnits = email && shown(DocumentKind.EMAIL, email);
   const paragraphs = letterUnits?.filter(isParagraph).map((unit) => unit.text) ?? [];
-  const hint = "Hover a section to edit or regenerate it";
+  // Touch screens have no hover: a tap shows a section's toolbar there.
+  const hint = (
+    <>
+      <span className="pointer-coarse:hidden">Hover a section to edit or regenerate it</span>
+      <span className="hidden pointer-coarse:inline">Tap a section to edit or regenerate it</span>
+    </>
+  );
 
   const restore = async (version: ViewedVersion) => {
     setRestoring(true);
@@ -642,7 +648,7 @@ export function ApplicationView({
         }
       >
         {/* Its underline runs the header's full width, under the padding too. */}
-        <TabsList aria-label="Application" className="-mx-10 px-10">
+        <TabsList aria-label="Application" className="-mx-page px-page">
           <TabsTrigger value="resume">Resume</TabsTrigger>
           <TabsTrigger value="letter">Cover letter</TabsTrigger>
           <TabsTrigger value="email">Email</TabsTrigger>
@@ -855,7 +861,7 @@ function PreviewSwitch({ label, checked, onCheckedChange }: { label: string; che
 /** The canvas with a note in place of a document the application doesn't have. */
 function MissingDocument({ children }: { children: ReactNode }) {
   return (
-    <div className="flex flex-1 justify-center overflow-auto bg-canvas px-10 pt-16 pb-16">
+    <div className="flex flex-1 justify-center overflow-auto bg-canvas px-page pt-8 pb-16 sm:pt-16">
       <p className="max-w-[420px] text-center text-muted">{children}</p>
     </div>
   );

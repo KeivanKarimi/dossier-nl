@@ -26,9 +26,9 @@ function EducationForm({
   const set = (change: Partial<EducationItem>) => onChange({ ...entry, ...change });
 
   return (
-    <div className="grid grid-cols-2 gap-[18px]" onBlur={flush}>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-[18px]" onBlur={flush}>
       <Input
-        className="col-span-2"
+        className="sm:col-span-2"
         label="Degree or course"
         placeholder="BSc Computer Science"
         value={entry.degree}
@@ -36,7 +36,7 @@ function EducationForm({
         autoFocus={autoFocus}
       />
       <Input
-        className="col-span-2"
+        className="sm:col-span-2"
         label="School"
         placeholder="Springfield University"
         value={entry.school}
@@ -61,7 +61,7 @@ function EducationForm({
         />
       </div>
       <Textarea
-        className="col-span-2"
+        className="sm:col-span-2"
         label="Notes"
         placeholder="Thesis, honours, anything worth mentioning"
         rows={3}

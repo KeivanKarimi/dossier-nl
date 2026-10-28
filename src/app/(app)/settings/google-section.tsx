@@ -149,7 +149,7 @@ export function GoogleSection({
 
       {connection.status === "connected" && (
         <>
-          <Card padding="none" className="flex flex-col px-7 pt-1.5 pb-5">
+          <Card padding="none" className="flex flex-col px-5 sm:px-7 pt-1.5 pb-5">
             <Toggle
               className="py-4"
               label="Read replies"
@@ -204,7 +204,7 @@ export function GoogleSection({
             )}
           </Card>
 
-          <Card padding="none" className="flex flex-col px-7 pt-1.5 pb-6">
+          <Card padding="none" className="flex flex-col px-5 sm:px-7 pt-1.5 pb-6">
             <Toggle
               className="py-4"
               label="Offer times from my calendar"

@@ -53,11 +53,11 @@ export function PostingTab({
 }) {
   const factsHint = useId();
   return (
-    <div className="@container flex flex-1 flex-col items-center gap-4 overflow-auto bg-canvas px-10 pt-11 pb-16">
+    <div className="@container flex flex-1 flex-col items-center gap-4 overflow-auto bg-canvas px-page pt-6 pb-16 sm:pt-11">
       <section
         aria-labelledby={`${factsHint}-title`}
         aria-describedby={factsHint}
-        className="flex w-full max-w-[640px] flex-col gap-4 rounded-panel border border-line-card bg-card px-[30px] py-7"
+        className="flex w-full max-w-[640px] flex-col gap-4 rounded-panel border border-line-card bg-card px-5 sm:px-[30px] py-7"
       >
         <div className="flex flex-col gap-1.5">
           <h2 id={`${factsHint}-title`} className="text-[15px] font-medium">
@@ -99,7 +99,7 @@ export function PostingTab({
         </span>
         <span>Pasted {posting.pasted}</span>
       </div>
-      <div className="flex w-full max-w-[640px] flex-col gap-[22px] rounded-panel border border-line-card bg-card px-[30px] py-7">
+      <div className="flex w-full max-w-[640px] flex-col gap-[22px] rounded-panel border border-line-card bg-card px-5 sm:px-[30px] py-7">
         {match && match.items.length > 0 && <MatchRows match={match} requirements={requirements} onAddSkill={onAddSkill} />}
         <div className={match && match.items.length > 0 ? "flex flex-col gap-2.5 border-t border-line pt-5" : "flex flex-col gap-2.5"}>
           <h2 className="text-[15px] font-medium">Original posting</h2>

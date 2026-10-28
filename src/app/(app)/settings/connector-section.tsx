@@ -40,7 +40,7 @@ export function ConnectorSection({ initial, address }: { initial: { on: boolean 
         profile and applications, and save the applications and fit scores it writes, on your own Claude plan. It never sends or deletes anything.
       </SettingsSectionIntro>
 
-      <Card padding="none" className="px-7 py-4">
+      <Card padding="none" className="px-5 sm:px-7 py-4">
         <Toggle
           label="Let Claude connect"
           description={

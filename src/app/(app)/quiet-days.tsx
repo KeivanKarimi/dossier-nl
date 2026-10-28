@@ -33,7 +33,7 @@ export function QuietDays({ days }: { days: number }) {
             if (toastResult(await rememberQuietDays({ days: next })).ok) router.refresh();
           });
         }}
-        className={cn(controlBaseClassName, "cursor-pointer px-2 py-1 text-meta")}
+        className={cn(controlBaseClassName, "cursor-pointer px-2 py-1 text-base sm:text-meta")}
       >
         {choices.map((choice) => (
           <option key={choice} value={choice}>

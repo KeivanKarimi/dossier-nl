@@ -23,9 +23,9 @@ function ReferenceForm({
   const set = (change: Partial<ReferenceItem>) => onChange({ ...entry, ...change });
 
   return (
-    <div className="grid grid-cols-2 gap-[18px]" onBlur={flush}>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-[18px]" onBlur={flush}>
       <Input
-        className="col-span-2"
+        className="sm:col-span-2"
         label="Name"
         placeholder="Jane Doe"
         value={entry.name}

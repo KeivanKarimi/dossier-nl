@@ -87,7 +87,7 @@ export function Dashboard({
  */
 function Columns({ calendar, children }: { calendar?: ReactNode; children: ReactNode }) {
   return (
-    <div className="@container px-10 pb-[72px]">
+    <div className="@container px-page pb-[72px]">
       <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-5 @min-[1240px]:grid-cols-[minmax(0,1200px)_400px]">
         {children}
         {calendar && <div className="min-w-0 @min-[780px]:max-w-[calc(50%-10px)] @min-[1240px]:max-w-none">{calendar}</div>}
@@ -100,7 +100,7 @@ function Columns({ calendar, children }: { calendar?: ReactNode; children: React
 function Funnel({ figures }: { figures: DashboardFigures }) {
   const { funnel, sent, heardBackPercent, reachedInterview } = figures;
   return (
-    <section aria-labelledby="funnel-heading" className={`${card} col-span-full gap-6 p-7`}>
+    <section aria-labelledby="funnel-heading" className={`${card} col-span-full gap-6 p-5 sm:p-7`}>
       <div className="flex flex-wrap items-baseline justify-between gap-4">
         <div className="flex flex-col gap-1">
           <h2 id="funnel-heading" className="font-serif text-section">
@@ -108,7 +108,7 @@ function Funnel({ figures }: { figures: DashboardFigures }) {
           </h2>
           <p className="text-control text-muted">How far each application you&apos;ve sent has made it, and where the ones that stopped are now.</p>
         </div>
-        <dl className="flex gap-7">
+        <dl className="flex flex-wrap gap-x-7 gap-y-3">
           <Figure value={String(sent)} label="sent" />
           <Figure value={heardBackPercent === null ? "None yet" : `${heardBackPercent}%`} label="heard back" />
           <Figure value={String(reachedInterview)} label="reached interview" />
@@ -132,7 +132,7 @@ function Figure({ value, label }: { value: string; label: string }) {
 function WhereThingsStand({ byStatus }: { byStatus: Record<ApplicationStatus, number> }) {
   const present = STATUSES.filter(({ value }) => byStatus[value] > 0);
   return (
-    <section aria-labelledby="standing-heading" className={`${card} gap-[18px] px-7 py-[26px]`}>
+    <section aria-labelledby="standing-heading" className={`${card} gap-[18px] px-5 sm:px-7 py-[26px]`}>
       <div className="flex items-baseline justify-between gap-3">
         <h2 id="standing-heading" className="text-[15px] font-medium">
           Where things stand
@@ -163,7 +163,7 @@ function WhereThingsStand({ byStatus }: { byStatus: Record<ApplicationStatus, nu
 /** "Worth a look" (DSH-5): offers, drafts, quiet applications and interviews. */
 function WorthALook({ items, quietDays }: { items: DashboardFigures["attention"]; quietDays: number }) {
   return (
-    <section aria-labelledby="attention-heading" className={`${card} px-7 pt-[26px] pb-3.5`}>
+    <section aria-labelledby="attention-heading" className={`${card} px-5 sm:px-7 pt-[26px] pb-3.5`}>
       <div className="flex items-baseline justify-between gap-3 pb-3">
         <h2 id="attention-heading" className="text-[15px] font-medium">
           Worth a look
@@ -218,5 +218,5 @@ function Welcome() {
 }
 
 function Panel({ children }: { children: ReactNode }) {
-  return <div className={`${card} max-w-[640px] items-start gap-3 p-7`}>{children}</div>;
+  return <div className={`${card} max-w-[640px] items-start gap-3 p-5 sm:p-7`}>{children}</div>;
 }

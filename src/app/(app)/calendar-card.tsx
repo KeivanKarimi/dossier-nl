@@ -95,11 +95,11 @@ export function CalendarCard({
 
       <div className="flex flex-col gap-1">
         <div className="flex items-center justify-between gap-2">
-          <Link href={links.previous} onNavigate={onNavigate(links.previous)} aria-label="Previous month" title="Previous month" className={buttonClassName("text", "sm", "px-1.5!")}>
+          <Link href={links.previous} onNavigate={onNavigate(links.previous)} aria-label="Previous month" title="Previous month" className={buttonClassName("text", "sm", "px-1.5! pointer-coarse:min-h-9")}>
             <ChevronLeft size={16} aria-hidden="true" />
           </Link>
           <p className="font-serif text-lg">{monthTitle(month)}</p>
-          <Link href={links.next} onNavigate={onNavigate(links.next)} aria-label="Next month" title="Next month" className={buttonClassName("text", "sm", "px-1.5!")}>
+          <Link href={links.next} onNavigate={onNavigate(links.next)} aria-label="Next month" title="Next month" className={buttonClassName("text", "sm", "px-1.5! pointer-coarse:min-h-9")}>
             <ChevronRight size={16} aria-hidden="true" />
           </Link>
         </div>

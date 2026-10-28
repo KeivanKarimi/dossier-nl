@@ -53,12 +53,12 @@ export function NotesTab({ applicationId, activity }: { applicationId: string; a
     });
 
   return (
-    <div className="@container flex flex-1 flex-col items-center gap-4 overflow-auto bg-canvas px-10 pt-11 pb-16">
+    <div className="@container flex flex-1 flex-col items-center gap-4 overflow-auto bg-canvas px-page pt-6 pb-16 sm:pt-11">
       <div className="flex w-full max-w-[640px] flex-wrap justify-between gap-x-3 gap-y-1 text-meta text-muted">
         <span>Notes and activity</span>
         <span>Private and never sent to the AI</span>
       </div>
-      <div className="flex w-full max-w-[640px] flex-col gap-5 rounded-panel border border-line-card bg-card px-[30px] py-7">
+      <div className="flex w-full max-w-[640px] flex-col gap-5 rounded-panel border border-line-card bg-card px-5 sm:px-[30px] py-7">
         <div className="flex flex-col gap-2.5">
           <label htmlFor={draftId} className="text-[15px] font-medium">
             Add a note
@@ -75,7 +75,7 @@ export function NotesTab({ applicationId, activity }: { applicationId: string; a
                 add();
               }
             }}
-            className="w-full resize-y rounded-control border border-line-input bg-input px-3 py-2.5 text-sm leading-normal placeholder:text-muted focus-visible:border-primary focus-visible:outline-offset-0"
+            className="w-full resize-y rounded-control border border-line-input bg-input px-3 py-2.5 text-base leading-normal placeholder:text-muted sm:text-sm focus-visible:border-primary focus-visible:outline-offset-0"
           />
           <div className="flex justify-end">
             <Button size="sm" aria-disabled={!draft.trim() || pending || undefined} onClick={add}>
@@ -114,7 +114,7 @@ export function NotesTab({ applicationId, activity }: { applicationId: string; a
                             save();
                           }
                         }}
-                        className="w-full resize-y rounded-control border border-primary bg-input px-3 py-2.5 text-sm leading-normal focus-visible:outline-offset-0"
+                        className="w-full resize-y rounded-control border border-primary bg-input px-3 py-2.5 text-base leading-normal focus-visible:outline-offset-0 sm:text-sm"
                       />
                       <div className="flex justify-end gap-1.5">
                         <Button variant="secondary" size="sm" onClick={() => setEditing(null)}>

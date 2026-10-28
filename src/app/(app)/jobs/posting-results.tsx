@@ -167,7 +167,7 @@ export function PostingResults(props: PostingResultsProps) {
           : `No postings for “${searched.keywords}”${searched.place ? ` within ${searched.radiusKm} km of ${searched.place}` : ""}. Try a bigger radius or fewer words.`;
 
   return (
-    <div className="flex flex-wrap items-start gap-6 px-10 pb-16">
+    <div className="flex flex-wrap items-start gap-6 px-page pb-16">
       {Object.entries(scoring).map(([key, { jobId }]) =>
         jobId ? <ScoreWatcher key={jobId} jobId={jobId} onChange={(job) => scoringChanged(key, job)} /> : null,
       )}
@@ -274,7 +274,7 @@ function withoutState(posting: ShownPosting): FoundPosting {
 }
 
 /** The Score pill on an unscored posting in the list, and the room the card keeps for it. */
-const pill = "inline-flex h-6 items-center rounded-full border px-2 text-xs";
+const pill = "inline-flex h-6 items-center rounded-full border px-2 text-xs pointer-coarse:h-8";
 
 function PostingList({
   postings,
@@ -392,14 +392,17 @@ function StateBadges({ state }: { state: PostingState }) {
 /** A posting's score (#208): its band, why it fits, and what gives pause. */
 function Fit({ fit }: { fit: PostingFit }) {
   return (
-    <div className="flex items-start gap-3.5 rounded-card border border-line-card bg-paper px-4 py-3.5">
-      <ScoreBadge score={fit.score} />
+    <div className="flex items-start gap-3.5 rounded-card border border-line-card bg-paper px-3.5 py-3.5 sm:px-4">
+      {/* On phones the line below says the score; the badge would only narrow the reasons. */}
+      <span className="hidden sm:contents">
+        <ScoreBadge score={fit.score} />
+      </span>
       <div className="flex min-w-0 flex-col gap-1.5 text-sm">
         <p className="font-medium">
           {fitBand(fit.score)} · {fit.score} of 100
         </p>
         {fit.reasons.length > 0 && (
-          <ul aria-label="Why it fits" className="flex list-disc flex-col gap-0.5 pl-5 text-muted">
+          <ul aria-label="Why it fits" className="flex list-disc flex-col gap-0.5 pl-4 text-muted sm:pl-5">
             {fit.reasons.map((reason, index) => (
               <li key={index}>{reason}</li>
             ))}
@@ -475,7 +478,7 @@ function PostingDetail({
     <section
       ref={ref}
       aria-labelledby={headingId}
-      className="flex min-w-0 flex-[999_1_420px] scroll-mt-[121px] flex-col gap-4 rounded-panel border border-line-card bg-card p-7 max-lg:order-first max-lg:max-h-[75vh] lg:sticky lg:top-[121px] lg:max-h-[calc(100dvh-145px)]"
+      className="flex min-w-0 flex-[999_1_420px] flex-col gap-4 overflow-y-auto rounded-panel border border-line-card bg-card p-5 sm:p-7 max-lg:order-first max-lg:max-h-[75vh] max-lg:scroll-mt-[calc(var(--topbar-h)+12px)] lg:sticky lg:top-[121px] lg:max-h-[calc(100dvh-145px)] lg:scroll-mt-[121px]"
     >
       <div className="flex flex-col gap-1.5">
         <h2 id={headingId} className="font-serif text-section text-pretty">
@@ -538,8 +541,9 @@ function PostingDetail({
         state.score && <Fit fit={state.score} />
       )}
 
-      {/* Only the text scrolls, so the title and actions stay in view; focusable, so it scrolls from the keyboard too. */}
-      <div tabIndex={0} role="region" aria-label="Posting text" className="-mx-1 min-h-0 flex-1 overflow-y-auto border-t border-line px-1 pt-4">
+      {/* From lg only the text scrolls, so the title and actions stay in view; focusable, so it scrolls from the keyboard too.
+          Narrower, the whole card scrolls instead: the actions and the fit leave too little room for a scrolling text. */}
+      <div tabIndex={0} role="region" aria-label="Posting text" className="-mx-1 border-t border-line px-1 pt-4 lg:min-h-0 lg:flex-1 lg:overflow-y-auto">
         {text.status === "loading" ? (
           <p role="status" className="text-sm text-muted">
             Getting the whole posting…

@@ -28,6 +28,7 @@ export function DropdownMenuContent({
   className,
   sideOffset = 6,
   align = "end",
+  collisionPadding = 8,
   ...props
 }: MenuPrimitive.DropdownMenuContentProps) {
   return (
@@ -35,8 +36,9 @@ export function DropdownMenuContent({
       <MenuPrimitive.Content
         sideOffset={sideOffset}
         align={align}
+        collisionPadding={collisionPadding}
         className={cn(
-          "z-30 flex min-w-[230px] flex-col rounded-card border border-line-popover bg-card p-1.5 shadow-menu",
+          "z-30 flex max-w-[calc(100vw-16px)] min-w-[230px] flex-col rounded-card border border-line-popover bg-card p-1.5 shadow-menu",
           className,
         )}
         {...props}

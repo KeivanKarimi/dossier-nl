@@ -61,7 +61,7 @@ function CitationField({
   };
 
   return (
-    <div className="col-span-2 flex flex-col gap-[7px]">
+    <div className="sm:col-span-2 flex flex-col gap-[7px]">
       <div className="flex items-end justify-between gap-3">
         <label htmlFor={id} className="text-label font-medium text-ink">
           Citation
@@ -116,10 +116,10 @@ function PublicationForm({
   const set = (change: Partial<PublicationItem>) => onChange({ ...entry, ...change });
 
   return (
-    <div className="grid grid-cols-2 gap-[18px]" onBlur={flush}>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-[18px]" onBlur={flush}>
       <CitationField value={entry.citation} onChange={(citation) => set({ citation })} autoFocus={autoFocus} />
       <Input
-        className="col-span-2"
+        className="sm:col-span-2"
         label={
           <>
             Link <span className="font-normal text-muted">(optional)</span>
@@ -135,7 +135,7 @@ function PublicationForm({
         }}
       />
       <Checkbox
-        className="col-span-2"
+        className="sm:col-span-2"
         label="Show on resumes"
         hint="Off keeps it in your profile, but leaves it off every resume and out of what the AI reads."
         checked={entry.onResumes}

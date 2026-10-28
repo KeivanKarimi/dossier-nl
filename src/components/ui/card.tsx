@@ -13,7 +13,7 @@ export function Card({ padding = "default", className, ...props }: CardProps) {
     <div
       className={cn(
         "rounded-panel border border-line-card bg-card",
-        padding === "default" && "p-7",
+        padding === "default" && "p-5 sm:p-7",
         className,
       )}
       {...props}

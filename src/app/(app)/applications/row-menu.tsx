@@ -36,7 +36,7 @@ export function RowMenu({ row, onMove }: { row: ApplicationRow; onMove: (to: App
         <DropdownMenuTrigger
           ref={trigger}
           aria-label={`Actions for ${[row.role, row.company].filter(Boolean).join(", ")}`}
-          className="grid size-7 place-items-center rounded-control text-muted hover:bg-hover hover:text-ink data-[state=open]:bg-hover data-[state=open]:text-ink"
+          className="grid size-7 place-items-center pointer-coarse:size-9 rounded-control text-muted hover:bg-hover hover:text-ink data-[state=open]:bg-hover data-[state=open]:text-ink"
         >
           <span aria-hidden="true" className="text-base leading-none">
             ⋯

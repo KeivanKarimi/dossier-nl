@@ -109,7 +109,7 @@ export function AgentSection({
         </p>
       )}
 
-      <Card padding="none" className="px-7 py-4">
+      <Card padding="none" className="px-5 sm:px-7 py-4">
         <Toggle
           label="Run the job agent"
           description={
@@ -122,7 +122,7 @@ export function AgentSection({
         />
       </Card>
 
-      <Card padding="none" className="flex flex-col gap-4 px-7 py-[26px]">
+      <Card padding="none" className="flex flex-col gap-4 px-5 sm:px-7 py-[26px]">
         <div className="flex flex-col gap-1">
           <h3 className="text-field font-medium">What it looks for</h3>
           <p className="text-meta text-muted">
@@ -141,7 +141,7 @@ export function AgentSection({
         </div>
       </Card>
 
-      <Card padding="none" className="grid gap-x-[18px] gap-y-5 px-7 py-[26px] sm:grid-cols-2">
+      <Card padding="none" className="grid gap-x-[18px] gap-y-5 px-5 sm:px-7 py-[26px] sm:grid-cols-2">
         <Select label="Runs after" hint={`Your time (${timeZone})`} value={String(settings.hour)} onChange={(event) => change({ hour: Number(event.target.value) })}>
           {HOURS.map((hour) => (
             <option key={hour} value={hour}>

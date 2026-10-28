@@ -98,7 +98,7 @@ export function DocumentsSection({
   return (
     <>
       <SettingsSectionIntro title="Documents">Defaults for every new application. You can still change them per job.</SettingsSectionIntro>
-      <Card padding="none" className="grid gap-x-[18px] gap-y-5 px-7 py-[26px] sm:grid-cols-2">
+      <Card padding="none" className="grid gap-x-[18px] gap-y-5 px-5 sm:px-7 py-[26px] sm:grid-cols-2">
         <Select label="Paper size" value={settings.paper} onChange={(event) => change({ paper: event.target.value as PaperSize })}>
           {Object.entries(PAPER_SIZES).map(([value, size]) => (
             <option key={value} value={value}>
@@ -222,7 +222,7 @@ export function DocumentsSection({
         </div>
       </Card>
 
-      <Card padding="none" className="flex flex-col px-7 pt-1.5 pb-2.5">
+      <Card padding="none" className="flex flex-col px-5 sm:px-7 pt-1.5 pb-2.5">
         <Toggle
           className="py-4"
           label="Include references"

@@ -45,7 +45,7 @@ function ProjectForm({
   const set = (change: Partial<ProjectItem>) => onChange({ ...entry, ...change });
 
   return (
-    <div className="grid grid-cols-2 gap-[18px]" onBlur={flush}>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-[18px]" onBlur={flush}>
       <Input
         label="Project"
         placeholder="Churn predictor"
@@ -78,7 +78,7 @@ function ProjectForm({
         />
       </div>
       <Textarea
-        className="col-span-2"
+        className="sm:col-span-2"
         label="What you did"
         placeholder="One point per line: what you built, how, and what came of it."
         rows={4}

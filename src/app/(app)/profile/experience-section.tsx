@@ -45,9 +45,9 @@ function ExperienceForm({
   const set = (change: Partial<ExperienceItem>) => onChange({ ...entry, ...change });
 
   return (
-    <div className="grid grid-cols-2 gap-[18px]" onBlur={flush}>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-[18px]" onBlur={flush}>
       <Input
-        className="col-span-2"
+        className="sm:col-span-2"
         label="Role"
         placeholder="Product Designer"
         value={entry.role}
@@ -85,7 +85,7 @@ function ExperienceForm({
         />
       </div>
       <Textarea
-        className="col-span-2"
+        className="sm:col-span-2"
         label="What you did"
         placeholder="One point per line. Rough is fine."
         rows={4}

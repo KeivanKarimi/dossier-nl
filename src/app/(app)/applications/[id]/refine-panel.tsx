@@ -85,7 +85,7 @@ export function RefinePanel({
       className="flex-[1_0_300px] border-t border-line bg-paper @min-[780px]:border-t-0 @min-[780px]:border-l"
     >
       <div className="flex h-[min(100dvh,680px)] flex-col @min-[780px]:h-full">
-        <div className="flex flex-col gap-1 px-6 pt-[26px] pb-3.5">
+        <div className="flex flex-col gap-1 px-4 sm:px-6 pt-[26px] pb-3.5">
           <h2 id="refine-heading" className="text-[15px] font-medium">
             Refine with AI
           </h2>
@@ -93,7 +93,7 @@ export function RefinePanel({
         </div>
 
         {/* column-reverse keeps the newest message in view. Focusable, so it scrolls from the keyboard too (E11-3). */}
-        <div role="log" aria-label="Conversation" tabIndex={0} className="flex min-h-0 flex-1 flex-col-reverse overflow-auto px-6">
+        <div role="log" aria-label="Conversation" tabIndex={0} className="flex min-h-0 flex-1 flex-col-reverse overflow-auto px-4 sm:px-6">
           <div className="flex flex-col gap-3.5 pt-1.5 pb-4">
             {messages.map((message) => (
               <div key={message.id} className={cn("flex flex-col gap-[5px]", message.role === "USER" ? "items-end" : "items-start")}>
@@ -105,7 +105,7 @@ export function RefinePanel({
           </div>
         </div>
 
-        <div className="flex flex-col gap-2.5 border-t border-line px-6 pt-3.5 pb-6">
+        <div className="flex flex-col gap-2.5 border-t border-line px-4 sm:px-6 pt-3.5 pb-6">
           {!aiReady && tab !== "posting" && (
             <p className="text-meta text-muted">
               Refining needs an AI provider.{" "}
@@ -159,7 +159,7 @@ export function RefinePanel({
                   void send(draft);
                 }
               }}
-              className="w-full resize-none bg-transparent text-sm leading-normal text-ink outline-none placeholder:text-muted"
+              className="w-full resize-none bg-transparent text-base leading-normal text-ink outline-none placeholder:text-muted sm:text-sm"
             />
             <div className="flex items-center justify-between">
               <span className="text-xs text-muted">Enter to send</span>

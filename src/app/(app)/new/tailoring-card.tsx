@@ -25,7 +25,7 @@ export function TailoringCard({
   const labelId = useId();
   const descriptionId = useId();
   return (
-    <Card className="flex flex-col gap-5 py-6">
+    <Card padding="none" className="flex flex-col gap-5 px-5 py-6 sm:px-7">
       <h2 className="text-[15px] font-medium">Tailoring</h2>
       <div className="flex flex-col gap-[9px]">
         <span id={labelId} className="text-label text-muted">

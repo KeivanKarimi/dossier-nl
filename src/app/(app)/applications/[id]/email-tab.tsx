@@ -57,8 +57,8 @@ export function EmailTab({
 }) {
   if (!units) {
     return (
-      <div className="flex flex-1 flex-col items-center overflow-auto bg-canvas px-10 pt-11 pb-16">
-        <div className="flex w-full max-w-[560px] flex-col items-start gap-3 rounded-panel border border-line-card bg-card px-7 py-7">
+      <div className="flex flex-1 flex-col items-center overflow-auto bg-canvas px-page pt-6 pb-16 sm:pt-11">
+        <div className="flex w-full max-w-[560px] flex-col items-start gap-3 rounded-panel border border-line-card bg-card px-5 sm:px-7 py-7">
           <h2 className="font-serif text-section">An email to send it with</h2>
           <p className="text-sm text-muted">
             I&apos;ll write a short email to go with your resume and cover letter, to whoever the posting says to send applications
@@ -77,13 +77,18 @@ export function EmailTab({
     toast((await copyText(text)) ? `Copied the ${what}.` : "That didn't copy. Select the text and copy it yourself.");
 
   return (
-    <div className="flex flex-1 flex-col items-center gap-4 overflow-auto bg-canvas px-10 pt-11 pb-16">
+    <div className="flex flex-1 flex-col items-center gap-4 overflow-auto bg-canvas px-page pt-6 pb-16 sm:pt-11">
       <div className="flex w-full max-w-[680px] flex-wrap items-center justify-between gap-x-3 gap-y-1 text-meta text-muted">
         <span className="flex flex-wrap items-center gap-x-4 gap-y-1">
           <span>Email · {aboutWords([body])}</span>
           {history}
         </span>
-        {hint && <span>{hint}</span>}
+        {hint && (
+          <span>
+            <span className="pointer-coarse:hidden">{hint}</span>
+            <span className="hidden pointer-coarse:inline">{hint.replace(/^Hover/, "Tap")}</span>
+          </span>
+        )}
       </div>
       {notice && <div className="w-full max-w-[680px]">{notice}</div>}
 
@@ -103,12 +108,12 @@ export function EmailTab({
         <Field label="Subject" onCopy={subject ? () => void copy(subject, "subject") : undefined}>
           {renderUnit({ id: "subject", children: subject })}
         </Field>
-        <div className="px-7 pt-6 pb-7">
+        <div className="px-5 sm:px-7 pt-6 pb-7">
           {renderUnit({ id: "body", className: "text-field leading-[1.6] break-words whitespace-pre-wrap", children: body })}
         </div>
 
         {(attachments.resume || attachments.letter) && (
-          <div className="flex flex-col gap-2.5 border-t border-line px-7 pt-4 pb-5">
+          <div className="flex flex-col gap-2.5 border-t border-line px-5 sm:px-7 pt-4 pb-5">
             <h3 className="text-meta text-muted">Attach</h3>
             <ul className="flex flex-col gap-2">
               {attachments.resume && (
@@ -151,7 +156,7 @@ export function EmailTab({
 /** A header line of the email, "To" or "Subject", with its Copy button. */
 function Field({ label, onCopy, children }: { label: string; onCopy?: () => void; children: ReactNode }) {
   return (
-    <div className="flex items-baseline gap-4 border-b border-line px-7 py-3.5">
+    <div className="flex items-baseline gap-4 border-b border-line px-5 sm:px-7 py-3.5">
       <span className="w-14 shrink-0 text-meta text-muted">{label}</span>
       <div className="min-w-0 flex-1 text-field break-words">{children}</div>
       {onCopy && (

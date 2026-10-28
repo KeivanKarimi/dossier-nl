@@ -27,8 +27,10 @@ export function TabsList({ variant = "underline", className, ...props }: TabsLis
       <TabsPrimitive.List
         className={cn(
           "flex",
+          // Below sm the tabs stay on one line and scroll sideways; the line
+          // under them is a shadow, which the scrolling doesn't clip.
           variant === "underline"
-            ? "flex-wrap gap-x-7 border-b border-line"
+            ? "scrollbar-none gap-x-5 overflow-x-auto shadow-[inset_0_-1px_0_var(--color-line)] sm:flex-wrap sm:gap-x-7 sm:overflow-visible sm:border-b sm:border-line sm:shadow-none"
             : "rounded-[10px] bg-track p-[3px]",
           className,
         )}
@@ -40,7 +42,7 @@ export function TabsList({ variant = "underline", className, ...props }: TabsLis
 
 const triggerClassNames: Record<TabsVariant, string> = {
   underline:
-    "-mb-px border-b-2 border-transparent pt-2.5 pb-[13px] text-sm text-muted hover:text-ink data-[state=active]:border-primary data-[state=active]:font-medium data-[state=active]:text-ink",
+    "shrink-0 border-b-2 border-transparent pt-2.5 pb-[13px] text-sm whitespace-nowrap text-muted sm:-mb-px hover:text-ink data-[state=active]:border-primary data-[state=active]:font-medium data-[state=active]:text-ink",
   segmented:
     "flex-1 rounded-control p-2 text-control font-medium data-[state=active]:bg-card data-[state=active]:shadow-raised",
 };

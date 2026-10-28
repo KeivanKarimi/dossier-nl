@@ -24,7 +24,7 @@ export function PeriodFilter({ period, children }: { period: DashboardPeriod; ch
   const [shown, show] = useOptimistic(period);
   return (
     <>
-      <div className="flex flex-wrap items-center gap-3 px-10 pb-5">
+      <div className="flex flex-wrap items-center gap-3 px-page pb-5">
         <span id="period-label" className="text-meta text-muted">
           Showing
         </span>

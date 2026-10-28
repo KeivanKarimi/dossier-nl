@@ -199,7 +199,7 @@ export function ResumeWorkspace({ profile, themes: initialThemes, usage, baseThe
         <aside
           ref={panelArea}
           aria-label="Theme"
-          className="flex flex-[1_0_300px] flex-col border-t border-line bg-paper px-7 pt-7 pb-12 @min-[780px]:border-t-0 @min-[780px]:border-l"
+          className="flex flex-[1_0_300px] flex-col border-t border-line bg-paper px-5 sm:px-7 pt-7 pb-12 @min-[780px]:border-t-0 @min-[780px]:border-l"
         >
           <Tabs value={panel} onValueChange={(value) => openPanel(value as Panel)} className="flex flex-col gap-6">
             <TabsList variant="segmented">

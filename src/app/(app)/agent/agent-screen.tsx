@@ -100,10 +100,10 @@ export function AgentScreen({ view }: { view: AgentView }) {
           </Button>
         }
       />
-      <div className="flex flex-col gap-8 px-10 pb-20">
+      <div className="flex flex-col gap-8 px-page pb-20">
         <Notices view={view} />
 
-        <Card padding="none" className="px-7 py-2">
+        <Card padding="none" className="px-5 sm:px-7 py-2">
           <dl>
             <Fact label="Searches for">{view.search ?? "Nothing yet"}</Fact>
             <Fact label="Last run">

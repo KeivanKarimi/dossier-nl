@@ -84,17 +84,18 @@ export function ProfileEditor({ initial, section, order }: { initial: ProfileDat
         }
       />
 
-      <div className="flex flex-wrap items-start gap-x-12 gap-y-10 px-10 pt-2 pb-20">
-        <div className="flex max-w-[220px] min-w-[200px] flex-[1_1_200px] flex-col gap-6">
+      <div className="flex flex-wrap items-start gap-x-12 gap-y-6 px-page pt-2 pb-20 md:gap-y-10">
+        {/* Below md, the sections are a strip that scrolls sideways above the form. */}
+        <div className="flex w-full min-w-0 flex-col gap-4 md:w-auto md:max-w-[220px] md:min-w-[200px] md:flex-[1_1_200px] md:gap-6">
           <StrengthMeter profile={profile} />
-          <nav aria-label="Profile sections" className="flex flex-col gap-0.5">
+          <nav aria-label="Profile sections" className="flex scrollbar-subtle gap-1 overflow-x-auto pb-1 md:flex-col md:gap-0.5 md:overflow-visible md:pb-0">
             {SECTIONS.map((entry) => (
               <Link
                 key={entry.id}
                 href={sectionHref(entry.id)}
                 aria-current={entry.id === section ? "page" : undefined}
                 className={cn(
-                  "flex items-center justify-between rounded-control px-3 py-[9px] text-sm text-ink hover:bg-hover hover:text-ink",
+                  "flex shrink-0 items-center justify-between gap-2 rounded-control px-3 py-[9px] text-sm whitespace-nowrap text-ink hover:bg-hover hover:text-ink md:shrink md:whitespace-normal",
                   entry.id === section && "bg-selected font-medium hover:bg-selected",
                 )}
               >

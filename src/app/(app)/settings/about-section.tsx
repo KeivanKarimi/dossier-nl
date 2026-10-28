@@ -95,7 +95,7 @@ export function AboutSection({ facts, usagePing, updates }: { facts: AboutFacts;
   return (
     <>
       <SettingsSectionIntro title="About this install">Free and open source. No accounts, no subscriptions.</SettingsSectionIntro>
-      <Card padding="none" className="px-7 py-2">
+      <Card padding="none" className="px-5 sm:px-7 py-2">
         <dl>
           {facts.map(({ label, value }) => (
             <div key={label} className="flex justify-between gap-4 border-t border-line py-3.5 text-sm first:border-t-0">
@@ -105,7 +105,7 @@ export function AboutSection({ facts, usagePing, updates }: { facts: AboutFacts;
           ))}
         </dl>
       </Card>
-      <Card padding="none" className="px-7 py-4">
+      <Card padding="none" className="px-5 sm:px-7 py-4">
         <Toggle
           label="Send the daily usage ping"
           description={pingDescription}
@@ -114,7 +114,7 @@ export function AboutSection({ facts, usagePing, updates }: { facts: AboutFacts;
           onCheckedChange={switchPing}
         />
       </Card>
-      <Card padding="none" className="px-7 py-4">
+      <Card padding="none" className="px-5 sm:px-7 py-4">
         <Toggle
           label="Check for updates daily"
           description={

@@ -36,7 +36,7 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
   const [waiting, agent] = await Promise.all([inboxCount().catch(() => 0), countAgentQueue().catch(() => 0)]);
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen flex-col lg:flex-row">
       <a
         href="#main"
         className="fixed top-3 left-3 z-50 -translate-y-[200%] rounded-control bg-primary px-4 py-2.5 text-sm font-medium text-on-primary hover:text-on-primary focus:translate-y-0"
@@ -51,14 +51,14 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
         counts={{ ...(waiting > 0 ? { "/inbox": waiting } : {}), ...(agent > 0 ? { "/agent": agent } : {}) }}
         colorScheme={parseColorScheme(jar.get(COLOR_SCHEME_COOKIE)?.value)}
       />
-      {/* The screen sits in a white panel inset from the shell. Each screen
+      {/* The screen sits in a white panel inset from the shell (edge to edge below lg). Each screen
           starts with its page bar (PageHeader or PageBar), which draws the
           panel's top edge and stays in view. */}
-      <div className="flex min-w-0 flex-1 flex-col bg-paper px-2 pb-2">
+      <div className="flex min-w-0 flex-1 flex-col bg-paper lg:px-2 lg:pb-2">
         <main
           id="main"
           tabIndex={-1}
-          className="relative flex min-w-0 flex-1 flex-col rounded-b-panel border border-t-0 border-line-card bg-surface focus:outline-none"
+          className="relative flex min-w-0 flex-1 flex-col bg-surface focus:outline-none lg:rounded-b-panel lg:border lg:border-t-0 lg:border-line-card"
         >
           {children}
         </main>

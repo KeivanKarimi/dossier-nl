@@ -359,7 +359,7 @@ function ReplyDraft({ email, aiReady }: { email: EmailView; aiReady: boolean }) 
               if (!busy) draft();
             }
           }}
-          className="h-[34px] min-w-0 flex-1 rounded-control border border-line-input bg-input px-3 text-sm placeholder:text-muted focus-visible:border-primary focus-visible:outline-offset-0"
+          className="h-[34px] min-w-0 flex-1 rounded-control border border-line-input bg-input px-3 text-base placeholder:text-muted sm:text-sm focus-visible:border-primary focus-visible:outline-offset-0"
         />
         <Button variant="secondary" disabled={busy} onClick={draft}>
           {job ? "Drafting…" : drafted ? "Draft again" : "Draft an answer"}

@@ -52,7 +52,7 @@ export function SegmentedControl<T extends string>({
             "text-ink disabled:cursor-not-allowed disabled:text-muted data-[state=checked]:bg-card data-[state=checked]:shadow-raised",
             size === "md"
               ? "rounded-control px-3.5 py-[7px] text-control font-medium"
-              : "rounded-[7px] px-3 py-1.5 text-meta",
+              : "rounded-[7px] px-3 py-1.5 text-meta pointer-coarse:py-2",
           )}
         >
           {option.label}

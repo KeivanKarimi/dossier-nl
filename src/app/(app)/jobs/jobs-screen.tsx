@@ -136,7 +136,7 @@ export function JobsScreen({
   return (
     <>
       {header}
-      {arbeitsagenturNote && <ArbeitsagenturNote accepted={false} onAccept={acceptArbeitsagentur} className="mx-10 mb-5 max-w-[760px]" />}
+      {arbeitsagenturNote && <ArbeitsagenturNote accepted={false} onAccept={acceptArbeitsagentur} className="mx-page mb-5 max-w-[760px]" />}
       <SearchForm source={source} countries={countries} query={query} pending={pending} onSearch={run} />
       {/* Announces each new set of results; the list itself is replaced. */}
       <p role="status" className="sr-only">
@@ -156,7 +156,7 @@ export function JobsScreen({
             searching={pending}
           />
         ) : (
-          <p className="px-10 pb-16 text-sm text-muted">
+          <p className="px-page pb-16 text-sm text-muted">
             {missingSearch
               ? "That search is no longer kept. Search again, or open one from Past searches."
               : "Search for a role, a skill or a company. Every search is kept with what it found, so you can come back to it without spending another search."}
@@ -211,7 +211,7 @@ function SearchForm({
       aria-label="Search postings"
       noValidate
       onSubmit={submit}
-      className="mx-10 mb-7 grid grid-cols-1 items-start gap-x-4 gap-y-4 rounded-panel border border-line-card bg-card p-6 sm:grid-cols-2 lg:grid-cols-[2fr_1.5fr_1.3fr_1fr_1fr]"
+      className="mx-page mb-7 grid grid-cols-1 items-start gap-x-4 gap-y-4 rounded-panel border border-line-card bg-card p-6 sm:grid-cols-2 lg:grid-cols-[2fr_1.5fr_1.3fr_1fr_1fr]"
     >
       <SearchFields value={form} onChange={set} source={source} countries={countries} errors={errors} />
       <div className="flex flex-wrap items-center justify-between gap-4 sm:col-span-2 lg:col-span-5">
@@ -234,7 +234,7 @@ function ViewTabs({ view, counts }: { view: JobsView; counts: { searches: number
     { view: "dismissed", label: "Dismissed", href: viewHref("dismissed"), count: counts.dismissed },
   ] as const;
   return (
-    <nav aria-label="Find jobs views" className="flex flex-wrap gap-1.5 px-10 pb-[18px]">
+    <nav aria-label="Find jobs views" className="flex flex-wrap gap-1.5 px-page pb-[18px]">
       {tabs.map((tab) => (
         <Link
           key={tab.view}
@@ -256,7 +256,7 @@ function ViewTabs({ view, counts }: { view: JobsView; counts: { searches: number
 /** Before a source is chosen: where to set one up. */
 function NoSource() {
   return (
-    <div className="mx-10 mb-16 flex max-w-[640px] flex-col items-start gap-3 rounded-panel border border-line-card bg-card px-7 py-7">
+    <div className="mx-page mb-16 flex max-w-[640px] flex-col items-start gap-3 rounded-panel border border-line-card bg-card px-5 sm:px-7 py-7">
       <h2 className="font-serif text-section">Choose where to search</h2>
       <p className="text-sm text-muted">
         Find jobs searches one job source for you, such as JSearch (LinkedIn, Indeed and more) or Adzuna. Pick one in Settings. Until then,
@@ -273,7 +273,7 @@ function NoSource() {
 function SearchProblem({ problem, message, onRetry }: { problem: Problem["problem"]; message: string; onRetry: () => void }) {
   const toSettings = problem === "no-key" || problem === "key" || problem === "country" || problem === "changed" || problem === "off";
   return (
-    <div role="alert" className="mx-10 mb-16 flex max-w-[640px] flex-col items-start gap-3 rounded-panel border border-line-card bg-card px-7 py-6">
+    <div role="alert" className="mx-page mb-16 flex max-w-[640px] flex-col items-start gap-3 rounded-panel border border-line-card bg-card px-5 sm:px-7 py-6">
       <p className="text-sm">{message}</p>
       {toSettings ? (
         <Link href={SETTINGS_HREF} className={buttonClassName("secondary", "sm")}>

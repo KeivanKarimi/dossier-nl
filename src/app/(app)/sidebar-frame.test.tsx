@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import type { ComponentProps } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
@@ -55,6 +55,20 @@ describe("SidebarFrame", () => {
   it("starts collapsed when it was left that way", () => {
     renderSidebar(true);
     expect(screen.getByRole("complementary")).toHaveAttribute("data-collapsed", "true");
+  });
+
+  it("opens the menu in a drawer on narrow screens, expanded, and closes it on a link", async () => {
+    renderSidebar(true);
+    // Closed, the drawer isn't in the page: one main navigation, the sidebar's.
+    expect(screen.getAllByRole("navigation", { name: "Main" })).toHaveLength(1);
+
+    await userEvent.click(screen.getByRole("button", { name: "Open menu" }));
+    const drawer = screen.getByRole("dialog", { name: "Menu" });
+    // Labels show in the drawer even with the sidebar collapsed.
+    expect(within(drawer).getByRole("link", { name: "Applications" })).not.toHaveAttribute("title");
+
+    await userEvent.click(within(drawer).getByRole("link", { name: "Applications" }));
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 });
 

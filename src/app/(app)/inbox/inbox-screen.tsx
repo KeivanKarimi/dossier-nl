@@ -12,7 +12,7 @@ import { StatusDot } from "@/components/ui/status-dot";
 import { checkInbox, dismissEmail, linkEmail } from "@/lib/google/actions";
 import type { EmailView, Inbox } from "@/lib/google/inbox-data";
 
-const card = "flex flex-col rounded-panel border border-line-card bg-card px-7 pt-[22px] pb-3";
+const card = "flex flex-col rounded-panel border border-line-card bg-card px-5 sm:px-7 pt-[22px] pb-3";
 
 /** The inbox (E15-3): what needs an answer, what needs a link, and what just happened. */
 export function InboxScreen({
@@ -71,7 +71,7 @@ export function InboxScreen({
           )
         }
       />
-      <div className="flex max-w-[860px] flex-col gap-5 px-10 pb-[72px]">
+      <div className="flex max-w-[860px] flex-col gap-5 px-page pb-[72px]">
         {empty ? (
           <p className={`${card} py-6! text-sm text-muted`}>{connected ? "Nothing yet. Replies to your applications will show up here." : "Nothing here yet."}</p>
         ) : (
@@ -161,7 +161,7 @@ function Unmatched({ email, timeZone, applications }: { email: EmailView; timeZo
           aria-label="Link to application"
           value={choice}
           onChange={(event) => setChoice(event.target.value)}
-          className="h-[30px] max-w-[320px] min-w-0 flex-1 cursor-pointer rounded-control border border-line-input bg-input px-2 text-control"
+          className="h-10 max-w-[320px] min-w-0 flex-1 cursor-pointer rounded-control border border-line-input bg-input px-2 text-base sm:h-[30px] sm:text-control"
         >
           <option value="">Choose application…</option>
           {applications.map((application) => (

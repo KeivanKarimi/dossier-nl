@@ -96,7 +96,7 @@ export function PhotoField({ photo, onChange }: { photo: ProfilePhoto | null; on
   }
 
   return (
-    <div className="col-span-2 flex items-start gap-5">
+    <div className="sm:col-span-2 flex items-start gap-5">
       <div className="flex h-24 w-[72px] flex-none items-center justify-center overflow-hidden rounded-control border border-line-field bg-paper text-faint">
         {photo ? (
           // eslint-disable-next-line @next/next/no-img-element -- a data URL: there's nothing for next/image to optimise.

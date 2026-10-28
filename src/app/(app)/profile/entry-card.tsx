@@ -37,7 +37,7 @@ function MoveButton({ label, disabled, onClick, children }: { label: string; dis
       aria-label={label}
       aria-disabled={disabled || undefined}
       onClick={() => !disabled && onClick()}
-      className="grid size-6 place-items-center rounded-[6px] text-sm leading-none text-muted hover:bg-hover hover:text-ink aria-disabled:cursor-default aria-disabled:text-faint aria-disabled:hover:bg-transparent"
+      className="grid size-6 place-items-center rounded-[6px] pointer-coarse:size-9 text-sm leading-none text-muted hover:bg-hover hover:text-ink aria-disabled:cursor-default aria-disabled:text-faint aria-disabled:hover:bg-transparent"
     >
       <span aria-hidden="true">{children}</span>
     </button>
@@ -112,7 +112,7 @@ export function EntryCard({
         )}
       </div>
       {open && (
-        <div id={bodyId} className="flex flex-col gap-5 border-t border-line px-6 pt-[22px] pb-6">
+        <div id={bodyId} className="flex flex-col gap-5 border-t border-line px-4 pt-[22px] sm:px-6 pb-6">
           {children}
           <div className="flex items-center justify-between">
             <Button variant="danger-text" size="sm" onClick={onRemove}>

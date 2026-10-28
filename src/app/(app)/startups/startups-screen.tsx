@@ -92,7 +92,7 @@ export function StartupsScreen({ filter, list, lastRefresh, refreshJobId, city, 
           </Button>
         }
       />
-      <div className="flex flex-col gap-6 px-10 pb-20">
+      <div className="flex flex-col gap-6 px-page pb-20">
         <RefreshStatus lastRefresh={lastRefresh} refreshing={refreshing} step={job?.step ?? null} today={today} />
         {lastRefresh && (
           <>
@@ -235,7 +235,7 @@ function Filters({ filter, city, country, onChange }: { filter: StartupFilter; c
 function Empty({ filter }: { filter: StartupFilter }) {
   const filtered = filter.q || filter.place !== "any" || filter.source || filter.minScore > 0 || filter.withEmail;
   return (
-    <p className="rounded-panel border border-dashed border-line-strong px-7 py-10 text-center text-sm text-muted">
+    <p className="rounded-panel border border-dashed border-line-strong px-5 sm:px-7 py-10 text-center text-sm text-muted">
       {filtered ? "None match these filters. Try fewer." : filter.status === "NEW" ? "Nothing new to look at. The next refresh may bring more." : "None here yet."}
     </p>
   );

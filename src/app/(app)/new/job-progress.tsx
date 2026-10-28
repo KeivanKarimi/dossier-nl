@@ -34,7 +34,7 @@ export function JobProgress({
   backLabel?: string;
 }) {
   return (
-    <Card className="flex flex-col gap-[22px] px-9 py-10">
+    <Card padding="none" className="flex flex-col gap-[22px] px-5 py-8 sm:px-9 sm:py-10">
       {/* Takes focus when its step starts (E11-3). */}
       <h2 tabIndex={-1} className="font-serif text-section">
         {title}

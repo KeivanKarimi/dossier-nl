@@ -25,13 +25,13 @@ export function PageHeader({ title, description, actions, before }: PageHeaderPr
           {before ?? <PageBarIcon />}
           <h1 className="font-serif text-title text-pretty">{title}</h1>
         </div>
-        {actions && <div className="flex shrink-0 items-center gap-2">{actions}</div>}
+        {actions && <div className="flex flex-wrap items-center gap-2 sm:shrink-0">{actions}</div>}
       </PageBar>
       {/* The screen's content starts 32px under the bar, after the description if there is one. */}
       {description ? (
-        <p className="max-w-[620px] px-10 pt-1 pb-8 text-lead text-pretty text-muted">{description}</p>
+        <p className="max-w-[620px] px-page pt-1 pb-6 text-lead text-pretty text-muted lg:pb-8">{description}</p>
       ) : (
-        <div aria-hidden="true" className="h-8" />
+        <div aria-hidden="true" className="h-5 lg:h-8" />
       )}
     </>
   );
@@ -46,9 +46,10 @@ export function PageBar({ children }: { children: ReactNode }) {
   return (
     // -mx-px: over the panel's side borders, so the bar's own line up with them.
     // pt-2: the shell's 8px above the panel, as at its sides and bottom; it
-    // stays while the bar sticks, so nothing scrolls by above it.
-    <div className="sticky top-0 z-20 -mx-px bg-paper pt-2">
-      <div className="flex min-h-12 flex-wrap items-center justify-between gap-x-6 gap-y-3 rounded-t-panel border border-b-0 border-line-card bg-surface px-10 pt-7 pb-4">
+    // stays while the bar sticks, so nothing scrolls by above it. Below lg the
+    // top bar is the one that sticks, and the panel runs edge to edge.
+    <div className="relative z-20 bg-paper lg:sticky lg:top-0 lg:-mx-px lg:pt-2">
+      <div className="flex min-h-12 flex-wrap items-center justify-between gap-x-6 gap-y-3 bg-surface px-page pt-5 pb-3 lg:rounded-t-panel lg:border lg:border-b-0 lg:border-line-card lg:pt-7 lg:pb-4">
         {children}
       </div>
     </div>

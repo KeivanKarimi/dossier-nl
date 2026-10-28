@@ -345,7 +345,7 @@ export function NewApplication({ aiReady, writeInClaude = false, samplePosting, 
         title="New application"
         description="Paste a job posting. I'll pull out the details, check it against your profile, and draft a tailored resume and cover letter."
       />
-      <div className="flex max-w-[816px] flex-col gap-6 px-10 pb-20">
+      <div className="flex max-w-[816px] flex-col gap-6 px-page pb-20">
         <Stepper
           steps={STEPS}
           current={draft.step === "creating" ? 2 : draft.step === "review" ? 1 : 0}

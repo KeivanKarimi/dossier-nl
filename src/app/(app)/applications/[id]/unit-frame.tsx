@@ -34,7 +34,7 @@ export type UnitFrameProps = {
 };
 
 const toolButton =
-  "rounded-[6px] px-[9px] py-[5px] text-on-inverse hover:bg-white/14 focus-visible:outline-on-inverse focus-visible:-outline-offset-2";
+  "rounded-[6px] px-[9px] py-[5px] text-on-inverse pointer-coarse:py-2 hover:bg-white/14 focus-visible:outline-on-inverse focus-visible:-outline-offset-2";
 
 /**
  * One unit of a tailored document in the preview (APP-5, APP-6). Hovering it
